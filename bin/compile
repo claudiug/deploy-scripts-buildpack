@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+# bin/compile <build-dir> <cache-dir> <env-dir>
+
+# Ensure wildcards in globs match dotfiles too.
+shopt -s dotglob
+
+BUILD_DIR=${1:-}
+CACHE_DIR=${2:-}
+ENV_DIR=${3:-}
+
+if [ -d $ENV_DIR/.predeploy ]; then
+    echo "-----> Detected dir .predeploy"
+    if [ -f $BUILD_DIR/.predeploy/init ]; then
+        echo "       Detected file .predeploy/init"
+        echo "       fixing permission"
+        chmod +x $BUILD_DIR/.predeploy/init
+        sh $BUILD_DIR/.predeploy/init
+        exit 0
+    fi
+fi
+
+echo "$ENV_DIR/.predeploy/init is undefined"
+exit 1
