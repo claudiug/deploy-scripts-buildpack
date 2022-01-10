@@ -8,16 +8,12 @@ BUILD_DIR=${1:-}
 CACHE_DIR=${2:-}
 ENV_DIR=${3:-}
 
-if [ -d "$BUILD_DIR" ]; then
-    cd "$BUILD_DIR"
+cd "$BUILD_DIR"
 
-    if [ -d "$BUILD_DIR/.predeploy" ]; then
-        echo "-----> Detected dir .predeploy"
-        if [ -f $BUILD_DIR/.predeploy/init ]; then
-            echo "       Detected file .predeploy/init"
-            echo "       fixing permission"
-            chmod +x $BUILD_DIR/.predeploy/init
-            source $BUILD_DIR/.predeploy/init
-        fi
-    fi
+echo "-----> Detected dir .predeploy"
+if [ -f $BUILD_DIR/.predeploy/init ]; then
+    echo "       fixing permission"
+    chmod +x $BUILD_DIR/.predeploy/init
+    echo "       Running"
+    source $BUILD_DIR/.predeploy/init
 fi

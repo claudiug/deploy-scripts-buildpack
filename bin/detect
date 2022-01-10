@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
 # bin/detect <build-dir>
 
+[[ ! -f "$1/.predeploy/init" ]] && exit 1
+
 echo "Predeploy buildpack"
