@@ -2,4 +2,3 @@
 # bin/detect <build-dir>
 
 echo "Predeploy buildpack"
-exit 0

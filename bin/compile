@@ -12,9 +12,5 @@ if [ -d $ENV_DIR/.predeploy ]; then
         echo "       fixing permission"
         chmod +x $BUILD_DIR/.predeploy/init
         sh $BUILD_DIR/.predeploy/init
-        exit 0
     fi
 fi
-
-echo "$ENV_DIR/.predeploy/init is undefined"
-exit 1
