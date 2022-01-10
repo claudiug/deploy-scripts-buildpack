@@ -4,16 +4,11 @@
 set -o errexit
 set -o pipefail
 
-BUILD_DIR=${1:-}
-CACHE_DIR=${2:-}
-ENV_DIR=${3:-}
+BUILD_DIR=$1
+CACHE_DIR=$2
+ENV_DIR=$3
 
 cd "$BUILD_DIR"
 
-echo "-----> Detected dir .predeploy"
-if [ -f $BUILD_DIR/.predeploy/init ]; then
-    echo "       fixing permission"
-    chmod +x $BUILD_DIR/.predeploy/init
-    echo "       Running"
-    source $BUILD_DIR/.predeploy/init
-fi
+echo "-----> Running .predeploy"
+source .predeploy/init
