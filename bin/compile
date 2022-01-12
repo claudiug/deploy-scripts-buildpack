@@ -10,5 +10,5 @@ ENV_DIR=$3
 
 cd "$BUILD_DIR"
 
-echo "-----> Running .predeploy"
-source .predeploy/init
+echo "-----> Running .deploy"
+source .deploy/init
