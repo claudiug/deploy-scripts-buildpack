@@ -1,4 +1,4 @@
-# scripts-buildpack
+# deploy-scripts-buildpack
 
 Buildpack that runs custom shell script
 
