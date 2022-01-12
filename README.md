@@ -1,8 +1,8 @@
-# predeploy-scripts-buildpack
+# scripts-buildpack
 
 Buildpack that runs custom shell script
 
-The proposed use case. Add as a first buildpack in the chain. It will check for the init file `.predeploy/init` in the project root folder.
+The proposed use case. Add as a first buildpack in the chain. It will check for the init file `.deploy/init` in the project root folder.
 
 # How to use:
 ## Heroku
